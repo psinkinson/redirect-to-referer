@@ -8,10 +8,10 @@
     <p id="message">You didn't come here from another page so I have nowhere to send you back to. Sorry!</p>
     <a id="btn" href="">Send me back</a>
     <script>
-        console.log(document.referer);
-        if (document.referer && document.referer.length > 0) {
-            document.getElementById('message').innerHTML = 'I am a simple page that will redirect you back to ' + document.referer;
-            document.getElementById('btn').href = document.referer;
+        console.log('referrer:', document.referrer);
+        if (document.referrer && document.referrer.length > 0) {
+            document.getElementById('message').innerHTML = 'I am a simple page that will redirect you back to ' + document.referrer;
+            document.getElementById('btn').href = document.referrer;
         } else {
             var btn = document.getElementById('btn');
             btn.parentNode.removeChild(btn);
