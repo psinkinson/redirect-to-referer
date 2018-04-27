@@ -9,7 +9,7 @@
     <a id="btn" href="">Send me back</a>
     <script>
         console.log(document.referer);
-        if (window.referer && window.referer.length > 0) {
+        if (document.referer && document.referer.length > 0) {
             document.getElementById('message').innerHTML = 'I am a simple page that will redirect you back to ' + document.referer;
             document.getElementById('btn').href = document.referer;
         } else {
