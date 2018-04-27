@@ -8,7 +8,7 @@
     <p id="message">You didn't come here from another page so I have nowhere to send you back to. Sorry!</p>
     <a id="btn" href="">Send me back</a>
     <script>
-        console.log(window.referer);
+        console.log(document.referer);
         if (window.referer && window.referer.length > 0) {
             document.getElementById('message').innerHTML = 'I am a simple page that will redirect you back to ' + document.referer;
             document.getElementById('btn').href = document.referer;
