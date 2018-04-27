@@ -5,12 +5,18 @@
   </head>
   <body>
     <h1>Redirect to Referer</h1>
-    <p>I am a simple page that will redirect you back to <span id="lbl">unknown</span></p>
+    <p id="message">You didn't come here from another page so I have nowhere to send you back to. Sorry!</p>
     <a id="btn" href="">Send me back</a>
     <script>
         console.log(window.referer);
-        document.getElementById('lbl').innerHTML = document.referer;
-        document.getElementById('btn').href = document.referer;
+        if (window.referer && window.referer.length > 0) {
+            document.getElementById('message').innerHTML = 'I am a simple page that will redirect you back to ' + document.referer;
+            document.getElementById('btn').href = document.referer;
+        } else {
+            var btn = document.getElementById('btn');
+            btn.parentNode.removeChild(btn);
+            document.getElementById('message').innerHTML = 'You didn\'t come here from another page so I have nowhere to send you back to. Sorry!';
+        }
     </script>
   </body>
 </html>
